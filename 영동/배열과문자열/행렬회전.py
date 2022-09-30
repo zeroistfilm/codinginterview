@@ -4,8 +4,14 @@
 # 4바이트 = 4*8 비트 = 32비트  = 8비트 + 8비트 + 8비트 + 8비트 (rgba)
 
 
-def rotate90(image):
-    return image
+def rotate90WithCopy(image):
+    assert len(image) == len(image[0])
+    N = len(image)
+    mat = [[0 for i in range(N)] for i in range(N)]
+    for i in range(N):
+        for j in range(N):
+            mat[i][j]= image[N - 1 - j][i]
+    return mat
 
 
 def printImg(img):
@@ -17,5 +23,6 @@ img = [[1, 2, 3, 4],
        [5, 6, 7, 8],
        [9, 10, 11, 12],
        [13, 14, 15, 16]]
-
-printImg(rotate90(img))
+printImg(img)
+print()
+printImg(rotate90WithCopy(img))
