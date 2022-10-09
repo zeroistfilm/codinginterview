@@ -1,11 +1,22 @@
 package LinkedList;
 
+import java.util.List;
+
 public class BasicLinkedList {
 
   Node head;
 
   public BasicLinkedList(int initData) {
     this.head = new Node(initData);
+  }
+
+  public static BasicLinkedList of(List<Integer> list) {
+    if (list.isEmpty()) throw new IllegalArgumentException();
+    BasicLinkedList linkedList = new BasicLinkedList(list.get(0));
+    for (Integer i : list.subList(1, list.size())) {
+      linkedList.append(i);
+    }
+    return linkedList;
   }
 
   public void append(int data) {
@@ -42,6 +53,35 @@ public class BasicLinkedList {
       next = next.next;
       now = now.next;
     }
+  }
+
+  public void grouping(int criterion) {
+    Node traversePtr = head;
+    Node lowPtr = head;
+
+    /*
+     * 만약 순회하다가 기준보다 낮은 값을 만나면 lowPtr가 head부터 순회하면서 낮은 값과 교환할 높은 값을 찾는다.
+     * 만약 lowPtr 이 대상을 못찾고 traversePtr을 조우한다면 대상이 없으므로 스킵한다. 
+     */
+    while (traversePtr != null) {
+      if (traversePtr.data < criterion) {
+        while (lowPtr != traversePtr) {
+          if (lowPtr.data >= criterion) {
+            exchange(lowPtr, traversePtr);
+            break;
+          }
+          lowPtr = lowPtr.next;
+        }
+      }
+      traversePtr = traversePtr.next;
+    }
+  }
+
+  private void exchange(Node source, Node target) {
+    int sourceData = source.data;
+
+    source.data = target.data;
+    target.data = sourceData;
   }
 
   @Override
