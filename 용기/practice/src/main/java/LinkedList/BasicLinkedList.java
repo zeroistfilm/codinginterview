@@ -2,14 +2,28 @@ package LinkedList;
 
 public class BasicLinkedList {
 
-  public static class Node {
+  Node head;
+
+  public BasicLinkedList(int initData) {
+    this.head = new Node(initData);
+  }
+
+  public void append(int data) {
+    head.appendToTail(data);
+  }
+
+  public void delete(int data) {
+    head = head.deleteNode(this.head, data);
+  }
+
+  private static class Node {
     Node next = null;
     int data;
-    public Node(int d) {
+    private Node(int d) {
       this.data = d;
     }
 
-    void appendToTail(int data) {
+    private void appendToTail(int data) {
       Node end = new Node(data);
       Node now = this;
       while (now.next != null) {
@@ -18,7 +32,7 @@ public class BasicLinkedList {
       now.next = end;
     }
 
-    Node deleteNode(Node head, int data) {
+    private Node deleteNode(Node head, int data) {
       Node now = head;
       if (now.data == data) {
         return head.next;
