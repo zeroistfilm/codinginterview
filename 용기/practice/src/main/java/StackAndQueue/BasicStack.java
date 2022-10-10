@@ -3,7 +3,7 @@ package StackAndQueue;
 import java.util.EmptyStackException;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.StringJoiner;
+
 
 public class BasicStack<T> {
 
@@ -56,7 +56,7 @@ public class BasicStack<T> {
 
     @Override
     public String toString() {
-      return String.valueOf(data);
+      return data.toString();
     }
   }
 }
