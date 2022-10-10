@@ -1,10 +1,17 @@
 package StackAndQueue;
 
 import java.util.EmptyStackException;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.StringJoiner;
 
 public class BasicStack<T> {
 
   private StackNode<T> top;
+
+  public BasicStack(T data) {
+    this.top = new StackNode<>(data);
+  }
 
   public T pop() {
     if (top == null) throw new EmptyStackException();
@@ -24,6 +31,17 @@ public class BasicStack<T> {
     return top.data;
   }
 
+  @Override
+  public String toString() {
+    StackNode<T> now = top;
+    List<String> stringList = new LinkedList<>();
+    while (now != null) {
+      stringList.add(now.toString());
+      now = now.next;
+    }
+    return String.join(", ", stringList);
+  }
+
   public boolean isEmpty() {
     return top == null;
   }
@@ -32,9 +50,13 @@ public class BasicStack<T> {
     private T data;
     private StackNode<T> next;
 
-    public StackNode(T data) {
+    private StackNode(T data) {
       this.data = data;
     }
-  }
 
+    @Override
+    public String toString() {
+      return String.valueOf(data);
+    }
+  }
 }
