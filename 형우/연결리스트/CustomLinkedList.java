@@ -51,6 +51,29 @@ public class CustomLinkedList<T> {
         }
     }
 
+    // 임시 버퍼 쓰지않고 구현해보기
+    <T> CustomLinkedList separateByPivot(T pivot) {
+        Node start = header.next, end = header.next;
+        Node node = header.next;
+        while (node != null) {
+            Node next = node.next;
+            if ((int) node.data < (int) pivot) { // todo : integer verify
+                node.next = start;
+                start = node;
+            } else {
+                end.next = node;
+                end = node;
+            }
+            node = next;
+        }
+        end.next = null;
+
+        Node newHeader = new Node();
+        newHeader.next = start;
+        this.header = newHeader;
+        return this;
+    }
+
     static <T> CustomLinkedList<T> of(T... datas) {
         if (datas.length == 0) {
             return new CustomLinkedList();
