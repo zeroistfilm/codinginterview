@@ -1,2 +1,6 @@
-Chapter1Test.java
- Chapter1Test
+chapter2/RemoveDuplicatesTest.java
+ chapter2.RemoveDuplicatesTest
+chapter1/Chapter1Test.java
+ chapter1.Chapter1Test
+chapter2/RemoveDuplicateNodesTest.java
+ chapter2.RemoveDuplicateNodesTest

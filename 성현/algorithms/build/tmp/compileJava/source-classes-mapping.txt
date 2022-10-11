@@ -1,2 +1,10 @@
-Chapter1.java
- Chapter1
+chapter2/RemoveDuplicates.java
+ chapter2.RemoveDuplicates
+chapter2/Node.java
+ chapter2.Node
+chapter2/NodeUtils.java
+ chapter2.NodeUtils
+chapter1/Chapter1.java
+ chapter1.Chapter1
+chapter2/RemoveDuplicateNodes.java
+ chapter2.RemoveDuplicateNodes
