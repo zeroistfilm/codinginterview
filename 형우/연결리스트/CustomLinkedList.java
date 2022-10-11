@@ -5,7 +5,11 @@ public class CustomLinkedList<T> {
         header = new Node();
     }
 
-    <T> void add(T data) {
+    CustomLinkedList(Node<T> header) {
+        this.header = header;
+    }
+
+    void add(T data) {
         Node<T> end = new Node();
         end.data = data;
         Node node = header;
@@ -15,7 +19,7 @@ public class CustomLinkedList<T> {
         node.next = end;
     }
 
-    <T> void remove(T data) {
+    void remove(T data) {
         Node node = header;
         while (node.next != null) {
             if (node.next.data == data) {
@@ -26,7 +30,7 @@ public class CustomLinkedList<T> {
         }
     }
 
-    <T> void print() {
+    void print() {
         Node node = header.next;
         while (node.next != null) {
             System.out.print(node.data + " -> ");
@@ -36,7 +40,7 @@ public class CustomLinkedList<T> {
     }
 
     // runner 기법 활용 (시간 O(n^2), 공간 O(1))
-    <T> void removeDup() {
+    void removeDup() {
         Node node = header;
         while (node != null && node.next != null) {
             Node runner = node;
@@ -52,7 +56,7 @@ public class CustomLinkedList<T> {
     }
 
     // 임시 버퍼 쓰지않고 구현해보기
-    <T> CustomLinkedList separateByPivot(T pivot) {
+    CustomLinkedList<T> separateByPivot(T pivot) {
         Node start = header.next, end = header.next;
         Node node = header.next;
         while (node != null) {
@@ -71,7 +75,7 @@ public class CustomLinkedList<T> {
         Node newHeader = new Node();
         newHeader.next = start;
         this.header = newHeader;
-        return this;
+        return (CustomLinkedList<T>) this;
     }
 
     static <T> CustomLinkedList<T> of(T... datas) {
@@ -85,9 +89,9 @@ public class CustomLinkedList<T> {
         }
         return customLinkedList;
     }
-}
 
-class Node<T> {
-    T data;
-    Node<T> next = null;
+    class Node<T> {
+        T data;
+        Node<T> next = null;
+    }
 }
