@@ -1,52 +1,45 @@
 class Node:
-    def __init__(self,data):
-        self.data=data
-        self.next=None
+    def __init__(self, data):
+        self.next = None
+        self.data = data
 
-class LinkedList:
-    def __init__(self):
-        dummy=Node("dummy")
-        self.head=dummy
-        self.tail=dummy
+    def appendToTail(self, data):
+        end = Node(data)
+        n = self
 
-        self.current = None
-        self.before =None
-        self.num_of_data=0
+        while n.next != None:
+            n = n.next
+        n.next = end
 
-    def append(self, data):
-        newNode = Node(data)
-        self.tail.next = newNode
-        self.tail = newNode
-        self.num_of_data+=1
+    def getElement(self):
+        n = self
+        retval = []
+        while True:
+            if n.next == None:
+                retval.append(n.data)
+                break
+            retval.append(n.data)
+            n = n.next
+        return retval
 
-    def delete(self):
-        popData = self.current.data
-        if self.current is self.tail:
-            self.tail = self.before
+    def __str__(self):
+        n = self
+        retval = []
+        while True:
+            if n.next == None:
+                retval.append(n.data)
+                break
+            retval.append(n.data)
+            n = n.next
+        return str(retval)
 
-        self.before.next = self.current.next
-        self.current = self.before
+def deleteNode(node, data):
+    if node.data == data:
+        return node.next
+    while node.next!= Node:
+        if node.next.data == data:
+            node.next = node.next.next
+            return node
+        node = node.next
 
-        self.num_of_data -=1
-        return popData
-
-    def first(self):
-        if self.num_of_data == 0:
-            return None
-
-        self.before == self.head
-        self.current = self.head.next
-
-        return self.current.data
-
-    def next(self):
-        if self.current.next == None:
-            return None
-
-        self.before = self.current
-        self.current = self.current.next
-
-        return self.current.data
-
-    def size(self):
-        return self.num_of_data
+    return node

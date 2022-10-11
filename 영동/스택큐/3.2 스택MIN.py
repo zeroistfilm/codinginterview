@@ -15,9 +15,6 @@ class Stack2(Stack):
     def getMinValue(self):
         return self.minValue
 
-    def peak(self):
-        return super().peak()
-
 
 s2 = Stack2()
 s2.push(2)
@@ -32,3 +29,4 @@ s2.push(-100)
 print(s2.getMinValue())
 
 print(s2.peak())
+print(s2)
