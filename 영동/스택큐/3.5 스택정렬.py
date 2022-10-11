@@ -19,7 +19,7 @@ class Stack3(Stack):
                self.tmpStack.push(self.tmpValue)
                self.tmpValue = data
 
-        print(super().peak())
+
 
 s = Stack3()
 s.push(10)
@@ -27,4 +27,6 @@ s.push(8)
 s.push(7)
 s.push(11)
 s.push(3)
+s.push(-1)
 s.sort()
+print(s.peak())
