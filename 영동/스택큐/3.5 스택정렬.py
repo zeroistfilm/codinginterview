@@ -22,9 +22,21 @@ class Stack3(Stack):
         return self.minValue
 
     def isSorted(self):
-        if self.getStack() == sorted(list(self.getStack())):
-            return True
-        return False
+        node = self.top
+        data = self.top.data
+        while True:
+            node = node.next
+            if node.data < data:
+                return False
+            if node.next == None:
+                break
+            data = node.data
+        return True
+
+
+        # if self.getStack() == sorted(list(self.getStack())):
+        #     return True
+        # return False
 
 
     def sort(self):
