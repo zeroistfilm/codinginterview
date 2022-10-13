@@ -23,7 +23,7 @@ public class RemoveDuplicates {
         return answer;
     }
 
-    public List<Integer> removeDuplicatesWithoutBuffer(int[] input) {
+    public List<Integer> removeDuplicatesWithoutBuffer(int... input) {
         List<Integer> answer = new ArrayList<>();
         Arrays.sort(input);
 
