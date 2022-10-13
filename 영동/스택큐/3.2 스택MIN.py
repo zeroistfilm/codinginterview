@@ -12,8 +12,17 @@ class Stack2(Stack):
             self.minStack.push(data)
         super().push(data)
 
+    def pop(self):
+        data = super().pop()
+        if self.minValue == data:
+            minValue = self.minStack.pop()
+            self.minValue= self.minStack.peak()
+
+        return data
+
+
     def getMinValue(self):
-        return self.minValue
+        return self.minStack.peak()
 
 
 s2 = Stack2()
@@ -28,5 +37,10 @@ print(s2.getMinValue())
 s2.push(-100)
 print(s2.getMinValue())
 
-print(s2.peak())
-print(s2)
+print('---------------')
+s2.pop()
+print(s2.getMinValue())
+s2.pop()
+print(s2.getMinValue())
+s2.pop()
+print(s2.getMinValue())
