@@ -5,14 +5,6 @@ import java.util.List;
 
 public class NodeUtils {
 
-    public static void appendToTail(Node node, int d) {
-        Node end = new Node(d);
-        while(node.hasNext()) {
-            node = node.next;
-        }
-        node.next = end;
-    }
-
     public static Node from(List<Integer> intList) {
         if (intList.isEmpty()) {
             return null;
@@ -20,7 +12,7 @@ public class NodeUtils {
         Node head = new Node(intList.get(0));
         int idx = 1;
         while(idx < intList.size()) {
-            appendToTail(head, intList.get(idx));
+            head.appendToTail(intList.get(idx));
             idx += 1;
         }
         return head;
