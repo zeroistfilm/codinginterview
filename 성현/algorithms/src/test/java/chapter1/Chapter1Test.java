@@ -1,5 +1,7 @@
+package chapter1;
+
+import chapter1.Chapter1;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class Chapter1Test {
