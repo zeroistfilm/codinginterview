@@ -8,7 +8,7 @@ public class MinUsingPushAndPop {
     }
 
     public Integer minUsingPushAndPop(MyStack<Integer> input) {
-
+        return 0;
     }
 
 
