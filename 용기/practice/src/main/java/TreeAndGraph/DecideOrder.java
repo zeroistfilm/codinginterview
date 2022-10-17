@@ -24,7 +24,7 @@ public class DecideOrder {
         .checkDependency()
         .priorityOrder()
         .toString();
-    System.out.println(result);
+    System.out.printf("The Answer is %s%n", result);
   }
 
   public static class NodeMap {
