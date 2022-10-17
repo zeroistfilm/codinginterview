@@ -22,6 +22,7 @@ class Stack3(Stack):
         return self.minValue
 
     def isSorted(self):
+        print(self.getStack())
         node = self.top
         data = self.top.data
         while True:
@@ -53,7 +54,7 @@ class Stack3(Stack):
                     self.tmpValue = data
                     continue
 
-                if data >= self.tmpValue:
+                if data > self.tmpValue:
                    self.tmpStack.push(self.tmpValue)
                    self.tmpValue = data
                 else:
