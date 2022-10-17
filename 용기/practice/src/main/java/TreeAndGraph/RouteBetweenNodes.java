@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * 4-1 노드 사이의 경로 : 방향 그래프가 주어졌을 때 두 노드 사이에 경로가 존재하는지 화인하는 알고리즘을 작성하라.
+ */
 public class RouteBetweenNodes {
 
   public static void main(String[] args) {
