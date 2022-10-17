@@ -5,6 +5,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * 4-12 합의 경로 : 각 노드의 값이 정수(음수 및 양수)인 이진 트리가 있다. 이때 정수의 합이 특정 값이 되도록 하는 경로의 개수를 세려고 한다. 경로가 꼭 루트에서
+ * 시작해서 말단 노드에서 끝날 필요는 없지만 반드시 아래로 내려가야 한다. 즉, 부모 노드에서 자식 노드로만 움직일 수 있다. 알고리즘을 어떻게 설계할 것인가?
+ */
 public class RouteOfSum {
 
   public static void main(String[] args) {
@@ -19,6 +23,40 @@ public class RouteOfSum {
     System.out.printf("The Wanted is %s\n", wanted);
     System.out.print("The Answer is ");
     System.out.println(tree.equalsTo(wanted));
+  }
+
+  /*
+   * 각 노드는 sumOfEdges()를 통해 트리의 정보를 상위 노드로 올려보낸다.
+   * toBeAdded 는 상단 노드의 값을 더해줄 하위 노드들의 값의 합이다.
+   * preserved 는 상단 노드의 값을 더해주지 말아야하는 하위 노드들의 값의 합이다.
+   */
+  public static class ResultOfNode {
+
+    private final List<Integer> toBeAdded;
+    private final List<Integer> preserved;
+
+    public ResultOfNode(Integer nodeData) {
+      this(List.of(nodeData));
+    }
+
+    public ResultOfNode(List<Integer> toBeAdded) {
+      this(toBeAdded, Collections.emptyList());
+    }
+
+    public ResultOfNode(List<Integer> toBeAdded, List<Integer> preserved) {
+      this.toBeAdded = toBeAdded;
+      this.preserved = preserved;
+    }
+
+    public int count(int wanted) {
+      int result = 0;
+      for (Integer computed : preserved) {
+        if (wanted == computed) {
+          result++;
+        }
+      }
+      return result;
+    }
   }
 
   public static class BinaryNode {
@@ -118,35 +156,6 @@ public class RouteOfSum {
 
     public void printTree() {
       root.print(0, 10);
-    }
-  }
-
-  public static class ResultOfNode {
-
-    private final List<Integer> toBeAdded;
-    private final List<Integer> preserved;
-
-    public ResultOfNode(Integer nodeData) {
-      this(List.of(nodeData));
-    }
-
-    public ResultOfNode(List<Integer> toBeAdded) {
-      this(toBeAdded, Collections.emptyList());
-    }
-
-    public ResultOfNode(List<Integer> toBeAdded, List<Integer> preserved) {
-      this.toBeAdded = toBeAdded;
-      this.preserved = preserved;
-    }
-
-    public int count(int wanted) {
-      int result = 0;
-      for (Integer computed : preserved) {
-        if (wanted == computed) {
-          result++;
-        }
-      }
-      return result;
     }
   }
 }
