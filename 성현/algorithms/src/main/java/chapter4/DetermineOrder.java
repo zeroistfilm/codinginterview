@@ -16,6 +16,7 @@ public class DetermineOrder {
     }
 
     public TreeNode setOrder(List<Pair<TreeNode, TreeNode>> orders) {
+        System.out.println("포기");
         return new TreeNode("3");
 
     }

@@ -9,10 +9,10 @@ public class PathSum {
             answer += 1;
         }
         if (node.left != null) {
-            answer += pathSum(node.left, currentSum += node.data, target);
+            answer += pathSum(node.left, currentSum + node.data, target);
         }
         if (node.right != null) {
-            answer += pathSum(node.right, currentSum += node.data, target);
+            answer += pathSum(node.right, currentSum + node.data, target);
         }
 
 
