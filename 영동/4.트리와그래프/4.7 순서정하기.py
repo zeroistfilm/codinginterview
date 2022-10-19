@@ -1,7 +1,7 @@
 # 프로젝트 리스트와 프로젝트간의 종속관계가 리스트 쌍으로 주어진다.
 # 프로젝트를 수행하는 순서를 찾아라
 #
-from typing import List, Any
+
 
 
 class calcProjectOrder:
