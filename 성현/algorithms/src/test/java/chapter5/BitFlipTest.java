@@ -12,9 +12,13 @@ class BitFlipTest {
 
     @Test
     void getMaximumLengthOfContinuous1WithOnceBitFlip() {
-        int answer = sut.getMaximumLengthOfContinuous1WithOnceBitFlip(1775);
+        int answer1 = sut.getMaximumLengthOfContinuous1WithOnceBitFlip(1775);
+        int answer2 = sut.getMaximumLengthOfContinuous1WithOnceBitFlip(0);
+        int answer3 = sut.getMaximumLengthOfContinuous1WithOnceBitFlip(2);
 
-        assertThat(answer).isEqualTo(8);
+        assertThat(answer1).isEqualTo(8);
+        assertThat(answer2).isEqualTo(1);
+        assertThat(answer3).isEqualTo(2);
     }
 
     @Test

@@ -9,6 +9,10 @@ public class BitFlip {
         int firstMax = 0;
         int secondMax = 0;
 
+        if (input < 2) {
+            return 1;
+        }
+
         while (input > 0) {
             Pair<Integer, Integer> firstMaxResult =  shiftBit(input);
             input = firstMaxResult.getValue0();
